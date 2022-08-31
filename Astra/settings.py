@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     # Added Manually - Create an APP
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
+    'Products.apps.ProductsConfig',
+    # 'Video_Chat.app.VideoChatConfig'
     'rest_framework',
     'corsheaders',
 

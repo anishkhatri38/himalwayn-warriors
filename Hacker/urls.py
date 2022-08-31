@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [   
     # Added 
-    path('', views.index, name = 'index'),
+    # path('', views.index, name = 'index'),
     path('projects', views.projects, name = 'projects'),
     path('project-obj/<str:pk>/', views.project, name = 'project'),
     path('create-project/', views.createProject, name = 'create-project'),

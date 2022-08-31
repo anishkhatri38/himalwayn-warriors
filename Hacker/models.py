@@ -48,7 +48,7 @@ class Message(models.Model):
     body = models.TextField(null = True )
     updated = models.DateTimeField(auto_now = True, null = True )
     created = models.DateTimeField(auto_now_add = True, null = True )
-
+    image = models.ImageField(null = True, blank = True )
     def __str__ (self):
         return self.body[0:50]
 

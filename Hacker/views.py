@@ -20,26 +20,27 @@ from .models import Project, Tag
 from django.contrib import admin
 from .utils import searchProjects,paginateProjects
 from django.db.models import Q
+from users.decorators import unauthenticated_user,allowed_users,admin_only
+from django.contrib.auth.models import Group
 
 
 
+# @unauthenticated_user
+# def registerPage(request):
+#     form =  UserCreationForm()
 
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#             user.username = user.username.lower()
+#             user.save()
+#             # login(request,user)
+#             return  redirect ('home')
+#         else: 
+#             messages.error(request, 'An error occured during registration, Please check all fields supplied credinetials.')
 
-def registerPage(request):
-    form =  UserCreationForm()
-
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower()
-            user.save()
-            # login(request,user)
-            return  redirect ('home')
-        else: 
-            messages.error(request, 'An error occured during registration, Please check all fields supplied credinetials.')
-
-    return render (request, 'login_register.html', {'form':form})
+#     return render (request, 'login_register.html', {'form':form})
 
 def index(request):
     
@@ -48,7 +49,9 @@ def index(request):
     
 
 # Addws for the extra messagesvTrainer room 
+
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['Admin'])
 def communicate(request):
     #Query for room database 
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -134,6 +137,9 @@ def deleteMessage(request,pk):
 
 #  For different Project 
 # @login_required(login_url='login')
+# @unauthenticated_user
+
+
 def projects(request):  
    projects, search_query = searchProjects(request)
    custom_range, projects = paginateProjects(request,projects,3)
@@ -143,6 +149,7 @@ def projects(request):
 
 
 # @login_required(login_url='login')
+
 def project(request,pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()

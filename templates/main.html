@@ -15,13 +15,18 @@
     <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
     <!-- Dev Search UI -->
     <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
   
     <title>Trainer's Room - Squeeze your muscles!</title>
     
 </head>
 
 <body>
-    {% include 'navbar.html'%}
+   
+    {% include 'navbar.html' %}
+    
+
+    
    
     {% comment %} {% if messages %}
 <ul class="messages">
@@ -50,6 +55,7 @@
 
 
 </body>
+{% include 'footer.html' %}
 <script src = {% static 'uikit/app.js' %}></script>
 
 

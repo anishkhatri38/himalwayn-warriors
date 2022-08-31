@@ -10,22 +10,20 @@ from django.db.models import Q
 from .utils import searchProfiles,paginateProfiles
 from .models import Contact
 from datetime import datetime
-
-
+from .decorators import allowed_users, unauthenticated_user,admin_only
+from django.contrib.auth.models import Group
 
 # Create your views here.
-
+@unauthenticated_user
+# @allowed_users(allowed_roles=['trainer'])
+# @admin_only
 def loginUser(request):
     page = 'login'
-
-
-    if request.user.is_authenticated:
-        return redirect('projects')
 
     if request.method == 'POST':
             username = request.POST['username']
             password = request.POST['password']
-            
+        
             try: 
               user = User.objects.get(username=username)
 
@@ -61,6 +59,9 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
 
+            group = Group.objects.get(name='Trainer')
+            user.groups.add(group)
+
             messages.success(request, 'User account is created! thank you ')
 
             login(request,user)
@@ -78,6 +79,7 @@ def registerUser(request):
 
 
 # @login_required(login_url='login')
+
 def profiles(request):
     profiles, search_query = searchProfiles(request)
 
@@ -87,6 +89,8 @@ def profiles(request):
     return render( request, 'users/profiles.html', context )
 
 # @login_required(login_url='login')
+
+
 def userProfile(request,pk):
     profile = Profile.objects.get(id = pk)
     topSkills = profile.skill_set.exclude(description__exact = "")
@@ -173,7 +177,9 @@ def contact(request):
         messages.success(request, 'Your message has been sent!.')
         return redirect('contact')
     return render (request,'contact.html' )
+
 @login_required(login_url = 'login')
+@allowed_users(allowed_roles=['Admin', 'Trainer'])
 def inbox(request):
     profile = request.user.profile
     messageRequest = profile.messages.all()

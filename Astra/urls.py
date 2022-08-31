@@ -36,6 +36,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Hacker.urls')),
     path('',include('users.urls')),
+    path('Products/', include('Products.urls')),
+    # path('Video_Chat/', include('Video_Chat.urls')),
     path('api/',include('api.urls')),
 
 
