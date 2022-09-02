@@ -13,25 +13,61 @@
           <div class="toggle-menu__lines"></div>
         </label>
         <ul class="header__menu">
-          {% if request.user.is_authenticated %}
-          {% comment %} {% if request.user.is_staff %} {% endcomment %}
+          {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+          {% if request.user.is_superuser %}  
+          {% if request.user.is_user %} 
+          {% if request.user.is_active%} 
           <li class="header__menuItem"><a href="{% url 'profiles' %}">Trainers</a></li>
            <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li> 
           
           <li class="header__menuItem"><a href="{% url 'projects' %}">Programs</a></li>
           <li class="header__menuItem"><a href="{% url 'communicate' %}">Groups</a></li>
           
-          {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+           {% comment %} {% if request.user.is_authenticated %}  {% endcomment %}
           <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
           <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
           <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
-          {% else %}
           {% comment %} {% endif %} {% endcomment %}
+          {% comment %} {% else %} {% endcomment %}
+        
+          
        
           
-          <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li>
-          <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Login/Signup</a></li>
+          {% comment %} <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li>
+          <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Login/Signup</a></li> {% endcomment %}
           {% endif %}
+          {% endif %}
+          {% endif %}
+
+          {% if request.user.is_active %} 
+          {% if request.user.is_staff %}  
+           
+          <li class="header__menuItem"><a href="{% url 'profiles' %}">Trainers</a></li>
+          <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li> 
+         
+         <li class="header__menuItem"><a href="{% url 'projects' %}">Programs</a></li>
+         <li class="header__menuItem"><a href="{% url 'communicate' %}">Groups</a></li>
+         
+          {% comment %} {% if request.user.is_authenticated %}  {% endcomment %}
+         <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
+         <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
+         <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
+          
+          {% endif %}
+          {% endif %}
+          
+
+          {% if request.user.is_active %} 
+          <li class="header__menuItem"><a href="{% url 'profiles' %}">Trainers</a></li>
+          <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li> 
+          <li class="header__menuItem"><a href="{% url 'projects' %}">Programs</a></li>
+         <li class="header__menuItem"><a href="{% url 'communicate' %}">Groups</a></li>
+         <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
+
+         {% endif %}
+
+          
+          {% comment %} {% endif %}  {% endcomment %}
           
           
         </ul>

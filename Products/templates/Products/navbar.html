@@ -67,7 +67,7 @@
      <div class="container">
             <br>
             {% block content %}
-
+			
 
             {% endblock content %}
          </div>
@@ -81,6 +81,10 @@
 
 	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </body>
-<br>
-{% include 'footer.html' %}
+{% comment %} {% include 'footer.html' %} {% endcomment %}
 </html>
+</div>
+<hr>
+<div>
+	{% include 'footer.html' %}
+</div>

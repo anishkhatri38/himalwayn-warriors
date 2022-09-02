@@ -35,7 +35,7 @@ def loginUser(request):
 
             if user is not None:
                 login(request, user)
-                return redirect(request.GET['next'] if 'next' in request.GET else 'account')
+                return redirect(request.GET['next'] if 'next' in request.GET else 'projects')
             else:
                 messages.error(request, 'username or password is incorrect!! ')
     return render(request, 'users/login_register.html')
