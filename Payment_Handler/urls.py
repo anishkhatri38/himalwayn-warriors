@@ -17,6 +17,10 @@ from . import views
 # ]
 urlpatterns = [
     path('',views.payment, name = "payment"),
+    path('', views.home, name='home'),
+    path('join', views.join, name='join'),
+    path('auth/settings', views.settings, name='settings'),
+     path('checkout', views.checkout, name='checkout'),
     # path('product_checkout/',views.product_checkout, name = "product_checkout"),
     # path('product_cart/',views.product_cart, name = "product_cart"),
 
