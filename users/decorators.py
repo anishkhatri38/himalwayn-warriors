@@ -39,13 +39,13 @@ def admin_only(allowed_roles=[]):
             if request.user.groups.exists():
                 group = request.user.groups.all()[0].name
 
-            if group == 'Customer':
+            if group == 'active':
                 return redirect('Products/products_home.html')
 
             if group == 'trainer':
-                return redirect('account')
+                return redirect('staff')
 
-            if group == 'admin':
+            if group == 'superuser':
                 return redirect('projects')
 
   

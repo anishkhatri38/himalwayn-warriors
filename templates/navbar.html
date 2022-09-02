@@ -39,7 +39,7 @@
           {% endif %}
           {% endif %}
 
-          {% if request.user.is_active %} 
+          {% comment %} {% if request.user.is_active %} 
           {% if request.user.is_staff %}  
            
           <li class="header__menuItem"><a href="{% url 'profiles' %}">Trainers</a></li>
@@ -49,12 +49,12 @@
          <li class="header__menuItem"><a href="{% url 'communicate' %}">Groups</a></li>
          
           {% comment %} {% if request.user.is_authenticated %}  {% endcomment %}
-         <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
+         {% comment %} <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
          <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
-         <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
+         <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li> {% endcomment %}
           
-          {% endif %}
-          {% endif %}
+          {% comment %} {% endif %}
+          {% endif %} {% endcomment %} 
           
 
           {% if request.user.is_active %} 

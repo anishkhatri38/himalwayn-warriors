@@ -18,6 +18,7 @@ from django.contrib.auth.models import Group
 # @allowed_users(allowed_roles=['trainer'])
 # @admin_only
 def loginUser(request):
+    group = None
     page = 'login'
 
     if request.method == 'POST':
@@ -36,6 +37,18 @@ def loginUser(request):
             if user is not None:
                 login(request, user)
                 return redirect(request.GET['next'] if 'next' in request.GET else 'projects')
+            
+            if request.user.groups.exists():
+                group = request.user.groups.all()[0].name
+
+            if group == 'active':
+                return redirect('Products/products_home.html')
+
+            if group == 'trainer':
+                return redirect('staff')
+
+            if group == 'superuser':
+                return redirect('projects')
             else:
                 messages.error(request, 'username or password is incorrect!! ')
     return render(request, 'users/login_register.html')
