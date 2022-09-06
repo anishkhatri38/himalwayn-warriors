@@ -45,7 +45,7 @@ class Room(models.Model):
 
 class Message(models.Model):
     #default user by django source: https://docs.djangoproject.com/en/4.0/ref/contrib/auth/
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null = True )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     #1 to many relationship (1:M)
@@ -54,9 +54,13 @@ class Message(models.Model):
     body = models.TextField(null = True )
     updated = models.DateTimeField(auto_now = True, null = True )
     created = models.DateTimeField(auto_now_add = True, null = True )
-    image = models.ImageField(null = True, blank = True )
-    def __str__ (self):
-        return self.body[0:50]
+
+
+    class Meta:
+       ordering = ['-updated', '-created']
+   
+    # def __str__ (self):
+    #     return self.body[0:50]
 
 class Project(models.Model):
     owner = models.ForeignKey(Profile, null = True, blank = True, on_delete = models.SET_NULL)
