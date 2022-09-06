@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Project, Review, Room
 from django.forms import widgets
 from django import forms 
-
+from django.contrib.auth.models import User 
 
 
 #this is for Trainer Room 
@@ -41,3 +41,10 @@ class ReviewForm(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class':'input'})
+
+
+class UserForm(ModelForm):
+    class Meta:
+       model = User
+       fields = ['username', 'email']
+
