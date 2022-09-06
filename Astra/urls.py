@@ -38,7 +38,7 @@ urlpatterns = [
     path('',include('Hacker.urls')),
     path('',include('users.urls')),
     path('Products/', include('Products.urls')),
-    path('Payment_Handler/', include('Payment_Handler.urls')),
+    # path('Payment_Handler/', include('Payment_Handler.urls')),
     # path('Video_Chat/', include('Video_Chat.urls')),
     path('api/',include('api.urls')),
 

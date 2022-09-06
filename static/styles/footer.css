@@ -79,6 +79,10 @@ ul{
 	background-color: #ffffff;
 }
 
+.menu_Item{
+	color:white;
+}
+
 /*responsive*/
 @media(max-width: 767px){
   .footer-col{

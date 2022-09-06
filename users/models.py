@@ -85,4 +85,3 @@ class InboxMessage(models.Model):
     class Meta:
         ordering = ['is_read','-created']
 
-

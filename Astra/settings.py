@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
     'Products.apps.ProductsConfig',
-    'Payment_Handler.apps.PaymentHandlerConfig',
+    # 'Payment_Handler.apps.PaymentHandlerConfig',
     # 'Video_Chat.app.VideoChatConfig'
     'rest_framework',
     'corsheaders',
