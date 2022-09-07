@@ -70,7 +70,7 @@
                 <p>Hosted By</p>
                 <a href="{% url 'user-profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
-                    <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                    <img src="{{ profile.imageURL}}" />
                   </div>
                   <span>@{{room.host.username}}</span>
                 </a>
@@ -82,6 +82,7 @@
             </div>
             <div class="room__conversation">
               <div class="threads scroll">
+
                 {% for message in room_messages %}
                 <div class="thread">
                   <div class="thread__top">
@@ -95,7 +96,7 @@
                       <span class="thread__date">{{message.created|timesince}} ago</span>
                     </div>
 
-                    {% if request.user == message.user %}
+                  {% if request.user == message.user %}
                     <a href = "{% url 'delete-message' message.id %}">
                     <div class="thread__delete">
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -106,7 +107,7 @@
                       </svg>
                     </div>
                   </div>
-                    {% endif %}
+                  {% endif %}
                   <div class="thread__details">
                     {{message.body}}
                   </div>
@@ -119,14 +120,15 @@
           <div class="room__message">
             <form action="" method = "POST">
                 {% csrf_token %}
-                <input name="body" placeholder="Write your message here..." /></form>
+                <input name="body" placeholder="Write your message here..." />
+              </form>
           </div>
         </div>
         <!-- Room End -->
 
         <!--   Start -->
         <div class="participants">
-          <h3 class="participants__top">Participants <span>({{patricipants.count}})</span></h3>
+          <h3 class="participants__top">Participants <span>({{participants.count}})</span></h3>
           <div class="participants__list scroll">
             {% for user in participants %}
             <a href="{% url 'user-profile' user.id %}" class="participant">

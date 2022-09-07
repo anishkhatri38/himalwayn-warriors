@@ -36,6 +36,10 @@ urlpatterns = [
     path('update-user', views.updateUser, name = "update-user"),
     path('login-customer/', views.loginCustomer, name = 'login-customer'),
     path('register-customer/', views.registerCustomer, name = 'register-customer'),
+    ## for flexible device design 
+    path('topics/', views.topicsPage, name = 'topics'),
+    path('activity/', views.activityPage, name = 'activity'),
+
 
     ## this is for footer 
     path('about/', views.AboutUs, name = 'about'),

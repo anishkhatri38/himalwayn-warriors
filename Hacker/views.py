@@ -65,7 +65,7 @@ def communicate(request):
         Q(description__contains=q)
     )
 
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()[0:5]
     room_count = rooms.count()
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
     
@@ -353,8 +353,21 @@ def registerCustomer(request):
     context = {'page': page, 'form':form }
     return render (request, 'login_customer.html', context )
 
+## for mobile flexible desing, browse topics and Recent Activity 
+def topicsPage(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    context = {'topics':topics}
+    return render(request, 'topics.html', context )
 
 
+def activityPage(request):
+    room_messages = Message.objects.all()
+    context = {'room_messages': room_messages}
+    return render(request, 'activity.html', context )
+    
+    
 ## for footer design and content 
 def AboutUs(request):
     return render(request, 'about.html')
+
