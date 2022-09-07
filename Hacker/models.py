@@ -135,6 +135,12 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+#for payment configuration using stripe
 
 
+class FitnessPlan(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.IntegerField(default = 0) #cents
 
+    def __str__(self):
+        return self.name

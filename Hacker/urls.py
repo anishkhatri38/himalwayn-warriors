@@ -43,6 +43,14 @@ urlpatterns = [
 
     ## this is for footer 
     path('about/', views.AboutUs, name = 'about'),
+    
+    # for membership of the program 
+    path('membership/', views.userMembership, name = 'membership'),
+    path('checkout/', views.userCheckout, name = 'checkout'),
+
+    # for customer rendering 
+    path('project-customer', views.projectsCustomer, name = 'project-customer'),
+
 ]
 
 

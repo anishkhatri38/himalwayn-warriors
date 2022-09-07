@@ -1,324 +1,111 @@
-{% extends 'base.html' %}
 
-{%block title%}Contact{%endblock title%} 
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Favicon -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <!-- Icon - IconMonster -->
+  {% comment %} <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" /> {% endcomment %}
+  <!-- Mumble UI -->
+   <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" /> 
+  <!-- Dev Search UI -->
+  <link rel="stylesheet" href="{% static 'styles/app.css' %}" /> 
+  <link rel="stylesheet" href="{% static 'styles/membership.css' %}" />
+  
 
-{% block body %}
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.98.0">
-    <title>مثال إتمام الشراء · Bootstrap v5.2</title>
+  <title>Trainer's Room - Squeeze your muscles!</title>
+  
+</head>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout-rtl/">
-
-    
-
-    
-
-<link href="/docs/5.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
-
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
-<meta name="theme-color" content="#712cf9">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="../checkout/form-validation.css" rel="stylesheet">
-  </head>
-  <body class="bg-light">
-    
-<div style = "My-5" class="container">
-  <main>
-    
-    <div style = "My-5"  class="py-10 text-center">
-        <img My-10 src="/static/img/anish.jpg "  width="140" height="140" style = "border-radius: 50%;" xmlns="/static/img/warriors1.jpg " role="img"  preserveAspectRatio="xMidYMid slice" focusable="false">
-    <div  class="py-10 text-center">
-       
-      <h2>Membership Form</h2>
-
-      <p class="lead">This is a membership form for the new members and also for the existing players for every fiscial year.</p>
-    </div>
-
-    <div class="row g-3">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Membership Type</span>
-          <span class="badge bg-secondary rounded-pill">Prices</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Club Main Support</h6>
-              <small class="text-muted">Decision taking</small>
-            </div>
-            <span class="text-muted">$350</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">New Player Entry Fee</h6>
-              <small class="text-muted">For new members only </small>
-            </div>
-            <span class="text-muted">$100</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Fiscial Fee</h6>
-              <small class="text-muted">For existing members</small>
-            </div>
-            <span class="text-muted">$50</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Games Fines</h6>
-              <small>Rules and Regulations</small>
-            </div>
-            <span class="text-success">$10</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Other fees</span>
-            <strong>$0</strong>
-          </li>
+<link rel="stylesheet" href="{% static 'styles/membership.css' %}" />
+<header class="header">
+    <div class="container container--narrow">
+      <a href="/" class="header__logo">
+        <img src="{% static 'img/logo.svg' %}" alt="Trainer's Room LOGO " />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          
+          
+          <li class="header__menuItem"><a href="{% url 'profiles' %}">Trainers</a></li>
+           <li class="header__menuItem"><a href="{% url 'product_home' %}">Products</a></li> 
+          
+          <li class="header__menuItem"><a href="{% url 'projects' %}">Programs</a></li>
+          <li class="header__menuItem"><a href="{% url 'communicate' %}">Groups</a></li>
+          
+          
+          <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
+          <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
+          <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
+          
+          
         </ul>
-
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="promo code">
-            <button type="submit" class="btn btn-secondary">verification</button>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Payment Details</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First Name </label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last Name </label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="username" class="form-label">user name</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback">
-                
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">E-mail address <span class="text-muted">(optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="username" required>
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address2" class="form-label">Address 2<span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment/House no">
-            </div>
-
-            <div class="col-md-5">
-              <label for="country" class="form-label">Country</label>
-              <select class="form-select" id="country" required>
-                <option value="">choose</option>
-                <option>Australia</option>
-              </select>
-              <div class="invalid-feedback">
-                This is anish Khatri 
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">Region</label>
-              <select class="form-select" id="state" required>
-                <option value="">choose</option>
-                <option>كاليفورنيا</option>
-              </select>
-              <div class="invalid-feedback">
-                This is created by Anish Khatri 
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Postal Code</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
-              <div class="invalid-feedback">
-                This is Anish Khatri.
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Did you re-checked the input credientals</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this details for next time</label>
-          </div>
-
-          <hr class="my-4">
-
-          <h4 class="mb-3">Payment Method</h4>
-
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">Credit Card</label>
-            </div>
-            <div class="form-check">
-              <input id="cash" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="cash">Cash </label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">PayPal</label>
-            </div>
-          </div>
-
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Card Holder Name  </label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Input the name as displayed on the card </small>
-              <div class="invalid-feedback">
-                This is created by anish Khatri 
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="Card Number" required>
-              <div class="invalid-feedback">
-                رقم بطاقة الائتمان مطلوب
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiry Date</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="card expiry date" required>
-              <div class="invalid-feedback">
-                Please contact anish at khatrianish395@gmail.com
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="3- digit number" required>
-              <div class="invalid-feedback">
-                khatrianish395@gmail.com
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
-        </form>
-      </div>
+      </nav>
     </div>
-  </main>
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy;AstraAnish@Himalaywan WArriors 2019-2022</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Query Form</a></li>
-      <li class="list-inline-item"><a href="#">Feedback Form </a></li>
-      <li class="list-inline-item"><a href="#">Contact Us</a></li>
-    </ul>
-  </footer>
+  </header>
+    
+
+
+
+
+
+
+{% block content %}
+<body>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Trainer's Room Premium </h1>
+  <p class="lead">Get the body you've alwasy dreamed of. Live the healthly life that you know you should. From workouts to nutrition, you have all the tools you need to succeed. It's all yours with Trainer's Room  Premium.</p>
 </div>
 
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-      <script src="../checkout/form-validation.js"></script>
-  </body>
-</html>
-{% endblock body  %}
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Monthly</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$10 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Detailed Workout Plans</li>
+          <li>Nutrition Guides</li>
+          <li>Scientific Studies Breakdown</li>
+          <li>Weekly Members Only Email</li>
+        </ul>
+        {% comment %} {% url 'checkout' %} {% endcomment %}
+        
+        <a href="https://buy.stripe.com/eVa9Dh3BieM0cKcaEG"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button></a>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Yearly<small class="text-primary">  Save $20!</small></h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$100 <small class="text-muted">/ yr</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Detailed Workout Plans</li>
+          <li>Nutrition Guides</li>
+          <li>Scientific Studies Breakdown</li>
+          <li>Weekly Members Only Email</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVa7v9dbScDS7pSbIL"><button type="button" class="btn btn-lg btn-block btn-primary">Get started</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<div>
+{% include 'footer.html' %}
+<link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
+</div>
+{% endblock %}

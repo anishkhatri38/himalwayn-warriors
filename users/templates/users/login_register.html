@@ -69,10 +69,10 @@
         <a href="/">
           <img src="{% static 'img/icon.svg' %}" alt="icon" />
         </a>
-        <h3>Account Login</h3>
-        <p>Hello User, Welcome Back!</p>
-      </div>
+        <h3>Trainer Account Login</h3>
 
+        <p>Hello Trainer, Welcome Back!</p>
+      </div>
       <form action= "" method = "POST" class="form auth__form">
         {% csrf_token %}
 
@@ -107,6 +107,9 @@
       <div class="auth__alternative">
         <p>Don’t have an Account?</p>
         <a href={% url 'register' %}>Sign Up</a>
+        <br>
+        <a href="{% url 'login-customer' %}" >Log In as Customer</a>
+
       </div>
     </div>
   </div>

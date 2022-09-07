@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Room, Topic, Message
+from .models import  Room, Topic, Message, FitnessPlan 
 
 
 
@@ -21,5 +21,8 @@ admin.site.register(Message)
 admin.site.register(Project)
 admin.site.register(Review)
 admin.site.register(Tag)
+
+# for payment configuration 
+admin.site.register(FitnessPlan)
 
 

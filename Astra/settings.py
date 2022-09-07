@@ -210,7 +210,10 @@ if os.getcwd() == '/app':
 
 
 
-# SMTP Configuration 
+# Payment Configuration 
+STRIPE_PUBLIC_KEY = "pk_test_51LdTSdAOhNXcMXOmIAI2vXQ5YswhxamdBr7YCdr7eNhRfNFoNSVrGSl02RqnmJ0jeYqHV9LtSMrjTRiuj5WYfRRN008G3i7K3e"
+STRIPE_SECRET_KEY = "sk_test_51LdTSdAOhNXcMXOm4yHjugwwTxvs1R0RMq7F62zFPjo1tEen6TBe4EouIgtObHYUMT38EtSjgzNG34CBc7wCzM9t00lg7ixUTg"
+STRIPE_WEBHOOK_SECRET = ""
 
 
 

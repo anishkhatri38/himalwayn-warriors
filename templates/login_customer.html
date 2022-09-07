@@ -1,5 +1,7 @@
-{% extends 'communicate_main.html' %}
+
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/communicate.css' %}" />
     <main class="auth layout">
 
       
@@ -11,7 +13,8 @@
             </div>
           </div>
           <div class="layout__body">
-            <h2 class="auth__tagline">Start your day with ZYM</h2>
+            <h2 class="auth__tagline">Hello User     <br> Welcome Back to Trainer's Room<br>Kickstart Your Day</h2>
+            
 
             <form class="form" action="#" method = "POST">
               {% csrf_token %}

@@ -306,7 +306,7 @@ def loginCustomer(request):
 
             if user is not None:
                 login(request, user)
-                return redirect(request.GET['next'] if 'next' in request.GET else 'update-user')
+                return redirect(request.GET['next'] if 'next' in request.GET else 'project-customer')
             
             if request.user.groups.exists():
                 group = request.user.groups.all()[0].name
@@ -371,3 +371,22 @@ def activityPage(request):
 def AboutUs(request):
     return render(request, 'about.html')
 
+
+ # for membership of the program 
+ 
+def userMembership(request):
+    context = {}
+    return render(request, 'membership.html', context)
+
+def userCheckout(request):
+    context = {}
+    return render(request, 'checkout.html', context)
+
+
+# for customer rendering 
+def projectsCustomer(request):  
+   projects, search_query = searchProjects(request)
+   custom_range, projects = paginateProjects(request,projects,3)
+
+   context = {'projects':projects, 'search_query':search_query,  'custom_range':custom_range}
+   return render (request, 'projects_customer.html', context)
