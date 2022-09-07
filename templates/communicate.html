@@ -5,6 +5,7 @@
 
     <main class="layout layout--3">
       <div class="container">
+        
         <!-- Topics Start -->
         {% include 'topic_component.html' %} 
         
@@ -57,5 +58,8 @@
         <!-- Activities End -->
       </div>
     </main>
-
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
+    {% include 'footer.html' %}
     {% endblock content %}
+
+    

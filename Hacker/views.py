@@ -22,7 +22,10 @@ from .utils import searchProjects,paginateProjects
 from django.db.models import Q
 from users.decorators import unauthenticated_user,allowed_users,admin_only
 from django.contrib.auth.models import Group
+from django.contrib.auth import logout, authenticate, login
 
+from users.models import Profile
+from users.forms import CustomUserCreationForm
 
 
 # @unauthenticated_user
@@ -93,7 +96,7 @@ def room(request, pk):
     return render( request, 'room.html', context )
 
 def customerProfile(request,pk):
-    user = User.objects.get(id=pk)
+    user = User.objects.get(id = pk)
     rooms = user.room_set.all()
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
@@ -274,3 +277,78 @@ def updateUser(request):
             return redirect('user-profile', pk=user.id)
     return render (request, 'update_user.html', context)
 
+
+
+
+# def userProfile(request,pk):
+#     profile = Profile.objects.get(id = pk)
+#     topSkills = profile.skill_set.exclude(description__exact = "")
+#     otherSkills = profile.skill_set.filter(description = "")
+#     context = {'profile': profile, 'topSkills':topSkills, 'otherSkills':otherSkills}
+#     return render (request, 'users/user-profile.html', context )
+
+def loginCustomer(request):
+    group = None
+    page = 'login'
+
+    if request.method == 'POST':
+            useraccountname = request.POST['username']
+            password = request.POST['password']
+        
+            try: 
+              user = User.objects.get(username=useraccountname)
+
+            except:
+                
+               messages.error(request, 'User does not exist')
+            
+            user = authenticate(request, username=useraccountname, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect(request.GET['next'] if 'next' in request.GET else 'communicate')
+            
+            if request.user.groups.exists():
+                group = request.user.groups.all()[0].name
+
+            if group == 'active':
+                return redirect('Products/products_home.html')
+
+            if group == 'trainer':
+                return redirect('staff')
+
+            if group == 'superuser':
+                return redirect('projects')
+            else:
+                messages.error(request, 'username or password is incorrect!! ')
+    return render(request, 'login_customer.html')
+
+
+
+def registerCustomer(request):
+    page = 'register'
+    form = CustomUserCreationForm()
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            group = Group.objects.get(name='Trainer')
+            user.groups.add(group)
+
+            messages.success(request, 'User account is created! thank you ')
+
+            login(request,user)
+            return redirect('communicate')
+
+        else:
+            messages.success(request,'An error has occured during registration.')
+
+
+
+
+    context = {'page': page, 'form':form }
+    return render (request, 'login_customer.html', context )

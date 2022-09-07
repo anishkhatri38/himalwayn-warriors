@@ -26,6 +26,7 @@ urlpatterns = [
     path('communicate/', views.communicate, name = 'communicate'),
     path('room/<str:pk>/', views.room, name = 'room'),
     path('profile/<str:pk>/', views.customerProfile, name ='customer-profile'),
+    # path ('profile/<str:pk>/', views.userProfile, name = "user-profile"),
     
     path('create-room/', views.createRoom, name = "create-room"),
     path('update-room/<str:pk>/', views.updateRoom, name = "update-room"),
@@ -33,7 +34,8 @@ urlpatterns = [
     path('delete-message/<str:pk>/', views.deleteMessage, name = "delete-message"),
 
     path('update-user', views.updateUser, name = "update-user"),
-    
+    path('login-customer/', views.loginCustomer, name = 'login-customer'),
+    path('register-customer/', views.registerCustomer, name = 'register-customer'),
 ]
 
 

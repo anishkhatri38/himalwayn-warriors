@@ -41,14 +41,6 @@ def loginUser(request):
             if request.user.groups.exists():
                 group = request.user.groups.all()[0].name
 
-            if group == 'active':
-                return redirect('Products/products_home.html')
-
-            if group == 'trainer':
-                return redirect('staff')
-
-            if group == 'superuser':
-                return redirect('projects')
             else:
                 messages.error(request, 'username or password is incorrect!! ')
     return render(request, 'users/login_register.html')
