@@ -36,6 +36,9 @@ urlpatterns = [
     path('update-user', views.updateUser, name = "update-user"),
     path('login-customer/', views.loginCustomer, name = 'login-customer'),
     path('register-customer/', views.registerCustomer, name = 'register-customer'),
+
+    ## this is for footer 
+    path('about/', views.AboutUs, name = 'about'),
 ]
 
 

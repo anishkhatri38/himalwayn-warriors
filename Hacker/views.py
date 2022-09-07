@@ -306,7 +306,7 @@ def loginCustomer(request):
 
             if user is not None:
                 login(request, user)
-                return redirect(request.GET['next'] if 'next' in request.GET else 'communicate')
+                return redirect(request.GET['next'] if 'next' in request.GET else 'update-user')
             
             if request.user.groups.exists():
                 group = request.user.groups.all()[0].name
@@ -352,3 +352,9 @@ def registerCustomer(request):
 
     context = {'page': page, 'form':form }
     return render (request, 'login_customer.html', context )
+
+
+
+## for footer design and content 
+def AboutUs(request):
+    return render(request, 'about.html')
