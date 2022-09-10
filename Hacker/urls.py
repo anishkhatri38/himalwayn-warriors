@@ -51,6 +51,9 @@ urlpatterns = [
     # for customer rendering 
     path('project-customer', views.projectsCustomer, name = 'project-customer'),
 
+    # for inbox
+    # path ('create-message/', views.createMessage, name = "create-message"),
+
 ]
 
 

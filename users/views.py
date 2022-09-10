@@ -95,7 +95,7 @@ def profiles(request):
 
 # @login_required(login_url='login')
 
-
+@allowed_users(allowed_roles=['Admin'])
 def userProfile(request,pk):
     profile = Profile.objects.get(id = pk)
     topSkills = profile.skill_set.exclude(description__exact = "")
@@ -184,7 +184,6 @@ def contact(request):
     return render (request,'contact.html' )
 
 @login_required(login_url = 'login')
-@allowed_users(allowed_roles=['Admin', 'Trainer'])
 def inbox(request):
     profile = request.user.profile
     messageRequest = profile.messages.all()
