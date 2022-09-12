@@ -1,5 +1,14 @@
 This is a django website for Trainer Room for my Project 2. 
 
+Info: 
+This website is a zym website where users/customers can select from various progarams and enroll in weekly or yearly subscription. They can view the trainers profiles, and the programs that they feature. 
+
+For this project:
+1. DJANGO
+2. REST FRAMEWORK 
+3. PSOTMAN 
+4. VS CODE 
+
 
 1. LOGIN PAGE FOR TRAINER 
 <img width="1278" alt="Screen Shot 2022-09-12 at 7 57 54 pm" src="https://user-images.githubusercontent.com/112159959/189632028-e7ad0ea4-9db6-4e51-9460-9488e0900ffa.png">
