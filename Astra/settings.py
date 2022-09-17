@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages'
+    # 'storages'
 ]
 
 # Added for api authentication
@@ -216,7 +216,7 @@ STRIPE_PUBLIC_KEY = "pk_test_51LdTSdAOhNXcMXOmIAI2vXQ5YswhxamdBr7YCdr7eNhRfNFoNS
 STRIPE_SECRET_KEY = "sk_test_51LdTSdAOhNXcMXOm4yHjugwwTxvs1R0RMq7F62zFPjo1tEen6TBe4EouIgtObHYUMT38EtSjgzNG34CBc7wCzM9t00lg7ixUTg"
 STRIPE_WEBHOOK_SECRET = ""
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # AWS_ACCESS_KEY_ID = 'AKIA2PYQACGPI3XKK2H2'
