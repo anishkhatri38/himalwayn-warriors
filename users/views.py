@@ -50,7 +50,7 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     messages.info(request, 'User sucessfully loged out  ')
-    return redirect('login')
+    return redirect('index')
 
 
 def registerUser(request):

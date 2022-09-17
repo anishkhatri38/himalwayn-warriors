@@ -17,42 +17,55 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div>
+  </div>
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    {% comment %} <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About Us</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Services
+    <ul class="navbar-nav mr-auto">
+      
+      {% comment %} <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/services">Ice Cream</a>
+          <a class="dropdown-item" href="">Customer</a>
           <a class="dropdown-item" href="#">Softy</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Family Pack</a> {% endcomment %}
+          <a class="dropdown-item" href="#">Family Pack</a>  {% endcomment %}
         </div>
-      {% comment %} </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact Us</a>
-      </li>  {% endcomment %}
+     
     
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      {% comment %} <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> {% endcomment %}
-      <ul>
+      {% comment %} <ul>
         <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}" role="button">Trainer</a>
       
+      </ul> {% endcomment %}
+      <ul class="navbar-nav mr-auto">
+      
+        <li class="nav-item dropdown">
+          <a class="btn btn-outline-success my-2 my-sm-0" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Login
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'login-customer' %}">Customer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'login' %}">Trainer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Admin</a> 
+          </div>
+        </li>
       </ul>
       <ul>
-        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login-customer' %}" role="button">Customer</a>
-      
       </ul>
+      
+      <ul class="navbar-nav mr-auto">
+        {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login-customer' %}" role="button">Customer</a> {% endcomment %}
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'register' %}" id="navbarDropdown" role="button">Sign Up</a>
+      </ul>
+      <ul>
+      </ul>
+    
     </form>
   </div>
 </nav>
