@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@l%cz_h5ph#7w^(1+u8hg9*t4ajwqpt=g!%rh615wszvx(a-rh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','traineroom.herokuapp.com']
 
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'storages'
+    'storages'
 ]
 
 # Added for api authentication
@@ -216,10 +216,15 @@ STRIPE_PUBLIC_KEY = "pk_test_51LdTSdAOhNXcMXOmIAI2vXQ5YswhxamdBr7YCdr7eNhRfNFoNS
 STRIPE_SECRET_KEY = "sk_test_51LdTSdAOhNXcMXOm4yHjugwwTxvs1R0RMq7F62zFPjo1tEen6TBe4EouIgtObHYUMT38EtSjgzNG34CBc7wCzM9t00lg7ixUTg"
 STRIPE_WEBHOOK_SECRET = ""
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-# AWS_ACCESS_KEY_ID = 'AKIA2PYQACGPI3XKK2H2'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'anishkhatri'
-# AWS_S3_SIGNATURE_VERSION = "s3v4"
+#Image configuration in S3 Bucket 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False 
+
+AWS_ACCESS_KEY_ID = 'AKIA2PYQACGPI3XKK2H2'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'anishkhatri'
+AWS_S3_SIGNATURE_VERSION = "s3v4"
