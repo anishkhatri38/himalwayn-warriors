@@ -1,3 +1,1 @@
-This is a django website for Trainer Room for my Project 2. 
-
-//
+Live Link :https://traineroom.herokuapp.com
