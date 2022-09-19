@@ -194,6 +194,7 @@ MEDIA_URL = ''
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+DISABLE_COLLECTSTATIC=1
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img' )
