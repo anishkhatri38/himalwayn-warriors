@@ -14,27 +14,27 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-                <img src="https://wallpapercave.com/wp/wp2832101.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.bodybuilding.com/images/2020/july/5-full-body-workouts-you-can-do-at-the-gym-header-830x467.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
             <h5>Welcome to the best Program offered at Best Prices </h5>
-            <p>I know you love doing Zym, lets us provide the oppourtunity to grow your muscles. </p>
+            <p>Lets kickstart your day.  </p>
         </div>
         </div>
         <div class="carousel-item">
               <img src="{% static 'img/program1_zxqFDp7.jpg' %}" class="d-block w-100" alt="...">
 
         <div class="carousel-caption d-none d-md-block">
-            <h5>#</h5>
-            <p>#</p>
+            <h5>Anish Khatri </h5>
+            <p>This website is developed by Anish Khatri</p>
         </div>
         </div>
         <div class="carousel-item">
-         <img src="{% static 'img/background.jpg' %}"  class="d-block w-100" alt="..."> 
+         <img src="https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2016/10/Full-Body-Workouts-of-the-Legends.jpg"  class="d-block w-100" alt="..."> 
         {% comment %} <img src="https://wallpapercave.com/wp/wp3018787.jpg"  class="d-block w-100" alt="..."> {% endcomment %}
         
         <div class="carousel-caption d-none d-md-block">
-            <h5>Started By Kombereni </h5>
-            <p>#</p>
+            <h5>In collabration with Kombereni</h5>
+            <p>We have associated with Kombereni.</p>
         </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
               <p class="card-text">Trainer Room has collabrated with the fitness centres around Adelaide. </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
                   <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
                 </div>
                 <small class="text-muted">-Trainer Room</small>
@@ -76,7 +76,7 @@
               <p class="card-text">Trainer Room has organized a free program to enage more peoples to zym. </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
                   <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
                 </div>
                 <small class="text-muted">-ABC News </small>
@@ -91,7 +91,7 @@
               <p class="card-text">Train with the best trainer in the town. </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
                   <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
                 </div>
                 <small class="text-muted">-Adelaide News </small>
@@ -102,9 +102,9 @@
 
         <div>
           <h1 class="my-4 text-center">Recent Training Videos</h1>
-          <iframe width="385" height="390" src="https://www.youtube.com/embed/24fdcMw0Bj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <iframe width="385" height="390" src="https://www.youtube.com/embed/TGYT1JyRGoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <iframe width="385" height="390" src="https://www.youtube.com/embed/TGYT1JyRGoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="370" height="315" src="https://www.youtube.com/embed/24fdcMw0Bj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="370" height="315" src="https://www.youtube.com/embed/TGYT1JyRGoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <<iframe width="370" height="315" src="https://www.youtube.com/embed/t1Ol76_yKY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         
@@ -112,7 +112,19 @@
       </div>
     </div>
 
-    <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
-{% include 'footer.html' %}  
+    {% comment %} <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
+{% include 'footer.html' %}   {% endcomment %}
+<style>
+  footer {
+    text-align: center;
+    padding: 3px;
+    background-color: black ;
+    color: white;
+  }
+</style>
+<footer>
+  <p>Author: Anish Khatri <br>
+  <a href="mailto:trainerroom924@gmail.com">trainerroom924@gmail.com</a></p>
+</footer>
 {% endblock content  %}
 

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1','traineroom.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     # Added Manually - Create an APP
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
@@ -52,6 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'storages'
 ]
+JAZZMIN_UI_TWEAKS = {
+    "theme": "slate",
+}
 
 # Added for api authentication
 REST_FRAMEWORK = {
@@ -179,7 +183,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'khatrianish395@gmail.com'
-EMAIL_HOST_PASSWORD = 'rwwwtroaubccybuq'
+EMAIL_HOST_PASSWORD = 'kqhgdmdxpnykvute'
 
 
 
