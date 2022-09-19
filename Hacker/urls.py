@@ -54,6 +54,9 @@ urlpatterns = [
     # for inbox
     # path ('create-message/', views.createMessage, name = "create-message"),
 
+    # from home contact page pop-up 
+    path ('home_contact/', views.home_contact, name = 'home_contact'),
+
 ]
 
 

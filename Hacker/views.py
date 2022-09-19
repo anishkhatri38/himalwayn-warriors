@@ -24,6 +24,7 @@ from users.decorators import unauthenticated_user,allowed_users,admin_only
 from django.contrib.auth.models import Group
 from django.contrib.auth import logout, authenticate, login
 
+from users.models import Contact
 from users.models import Profile
 from users.forms import CustomUserCreationForm
 
@@ -435,3 +436,14 @@ def createMessage(request,pk):
     return render(request, 'users/message_form.html',context)
 
 
+def home_contact(request):
+    if request.method == "POST" :
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        desc= request.POST.get('desc')
+        contact = Contact (name=name, email=email, phone=phone, desc=desc, date=datetime.today())
+        contact.save()
+        messages.success(request, 'Your message has been sent!.')
+        return redirect('contact')
+    return render (request,'home_contact.html' )

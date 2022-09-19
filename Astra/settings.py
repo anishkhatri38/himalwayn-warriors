@@ -194,14 +194,13 @@ MEDIA_URL = ''
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-DISABLE_COLLECTSTATIC=1
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img' )
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 #Image configuration in S3 Bucket 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False 
