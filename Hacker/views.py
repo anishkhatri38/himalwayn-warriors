@@ -32,33 +32,15 @@ from users.forms import CustomUserCreationForm
 from users.forms import CustomUserCreationForm, ProfileForm, SkillForm, InboxMessageForm
 
 
-# @unauthenticated_user
-# def registerPage(request):
-#     form =  UserCreationForm()
-
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save(commit=False)
-#             user.username = user.username.lower()
-#             user.save()
-#             # login(request,user)
-#             return  redirect ('home')
-#         else: 
-#             messages.error(request, 'An error occured during registration, Please check all fields supplied credinetials.')
-
-#     return render (request, 'login_register.html', {'form':form})
-
 def index(request):
-    
     print(request.user)
     return render(request, 'index.html')
+
+
+
     
-
-# Addws for the extra messagesvTrainer room 
-
+# Messaging communication in our website 
 @login_required(login_url='login')
-
 def communicate(request):
     #Query for room database 
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -68,15 +50,14 @@ def communicate(request):
         Q(name__contains=q)  |
         Q(description__contains=q)
     )
-
     topics = Topic.objects.all()[0:5]
     room_count = rooms.count()
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
-    
-
     context ={'rooms':rooms, 'topics':topics,
     'room_count': room_count, 'room_messages': room_messages }
     return render( request, 'communicate.html', context)
+
+
 
 
 @login_required(login_url='login')
@@ -85,7 +66,6 @@ def room(request, pk):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all().order_by('-created')
     patricipants = room.participants.all()
-
 
     if request.method == 'POST':
         message = Message.objects.create(
@@ -99,6 +79,10 @@ def room(request, pk):
     context = {'room': room, 'room_messages': room_messages, 'participants':patricipants }
     return render( request, 'room.html', context )
 
+
+
+
+
 def customerProfile(request,pk):
     user = User.objects.get(id = pk)
     rooms = user.room_set.all()
@@ -106,6 +90,8 @@ def customerProfile(request,pk):
     topics = Topic.objects.all()
     context = {'user':user, 'rooms':rooms, 'room_messages': room_messages,'topics':topics}
     return render (request, 'customer_profile.html', context)
+
+
 
 
 
@@ -130,6 +116,8 @@ def createRoom(request):
 
 
 
+
+
 @login_required(login_url='login')
 def updateRoom(request,pk):
     topics = Topic.objects.all()
@@ -151,6 +139,7 @@ def updateRoom(request,pk):
 
 
 
+
 @login_required(login_url='login')
 def deleteRoom(request,pk):
     room = Room.objects.get (id=pk)
@@ -159,6 +148,8 @@ def deleteRoom(request,pk):
         room.delete()
         return redirect('communicate')
     return render(request, 'delete_template.html',context )
+
+
 
 
 
@@ -174,9 +165,9 @@ def deleteMessage(request,pk):
         return redirect('communicate')
     return render(request, 'delete_template.html',{'obj':message} )
 
-#  For different Project 
-# @login_required(login_url='login')
-# @unauthenticated_user
+
+
+
 
 
 def projects(request):  
@@ -187,8 +178,11 @@ def projects(request):
    return render (request, 'projects.html', context)
 
 
-# @login_required(login_url='login')
 
+
+
+
+@login_required(login_url='login')
 def project(request,pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
@@ -205,9 +199,13 @@ def project(request,pk):
         # update  project vote count 
         messages.success(request, 'Your review was sucessfully submitted')
         return redirect('project' ,pk = projectObj.id)
-
-
     return render (request, 'single.project.html', {'project': projectObj,'form':form})
+
+
+
+
+
+
     
 @login_required(login_url='login')
 def createProject(request):
@@ -225,13 +223,14 @@ def createProject(request):
                 tag, created = Tag.objects.get_or_create(name = tag )
                 project.tags.add(tag)
             return redirect('account')
-
-
-
     context = {'form':form}
     return render(request, "project_form.html", context)
 
 
+
+
+
+@login_required(login_url='login')
 def updateProject(request,pk):
     profile = request.user.profile
     project = profile.project_set.get(id=pk)
@@ -247,16 +246,13 @@ def updateProject(request,pk):
                 tag, created = Tag.objects.get_or_create(name = tag )
                 project.tags.add(tag)
             return redirect('account')
-
-
-
     context = {'form':form, 'project':project}
     return render(request, "project_form.html", context)
 
 
 
 
-
+@login_required(login_url='login')
 def deleteProject(request,pk):
     profile = request.user.profile
     project = profile.project_set.get (id = pk)
@@ -268,6 +264,10 @@ def deleteProject(request,pk):
     return render(request, 'delete_template.html', context)
 
 
+
+
+
+@login_required(login_url='login')
 def updateUser(request):
     user = request.user
     form = UserForm(instance = user)
@@ -290,6 +290,8 @@ def updateUser(request):
 #     otherSkills = profile.skill_set.filter(description = "")
 #     context = {'profile': profile, 'topSkills':topSkills, 'otherSkills':otherSkills}
 #     return render (request, 'users/user-profile.html', context )
+
+
 
 def loginCustomer(request):
     group = None
@@ -350,12 +352,13 @@ def registerCustomer(request):
 
         else:
             messages.success(request,'An error has occured during registration.')
-
-
-
-
     context = {'page': page, 'form':form }
     return render (request, 'login_customer.html', context )
+
+
+
+
+
 
 ## for mobile flexible desing, browse topics and Recent Activity 
 def topicsPage(request):
@@ -365,26 +368,35 @@ def topicsPage(request):
     return render(request, 'topics.html', context )
 
 
+
+
+
+#Activity in small screen devices 
 def activityPage(request):
     room_messages = Message.objects.all()
     context = {'room_messages': room_messages}
     return render(request, 'activity.html', context )
     
     
+
+
 ## for footer design and content 
+@login_required(login_url='login')
 def AboutUs(request):
     return render(request, 'about.html')
 
 
  # for membership of the program 
-
+@login_required(login_url='login')
 def userMembership(request):
     context = {}
     return render(request, 'membership.html', context)
-
+@login_required(login_url='login')
 def userCheckout(request):
     context = {}
     return render(request, 'checkout.html', context)
+
+
 
 
 # for customer rendering 
@@ -445,5 +457,5 @@ def home_contact(request):
         contact = Contact (name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contact.save()
         messages.success(request, 'Your message has been sent!.')
-        return redirect('contact')
+        return redirect('home_contact')
     return render (request,'home_contact.html' )
