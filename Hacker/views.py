@@ -383,7 +383,7 @@ def activityPage(request):
 ## for footer design and content 
 @login_required(login_url='login')
 def AboutUs(request):
-    return render(request, 'about.html')
+    return render(request, 'testing.html')
 
 
  # for membership of the program 
@@ -473,3 +473,6 @@ def contact(request):
         messages.success(request, 'Your message has been sent!.')
         return redirect('home_contact')
     return render (request,'contact.html' )
+
+def Testing(request):
+    return render (request,'testing.html' )

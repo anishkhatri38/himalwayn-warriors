@@ -60,6 +60,7 @@ urlpatterns = [
     path ('home_contact/', views.home_contact, name = 'home_contact'),
 
     path ('contact/', views.contact, name = 'contact'),
+    path ('testing/', views.Testing, name = 'testing'),
 
 ]
 

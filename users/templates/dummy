@@ -1,0 +1,66 @@
+<style>
+    #main div {
+      -ms-flex: 1; /* IE 10 */ 
+      flex: 1;
+    }
+    </style>
+    {% load static %}
+    
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <!-- Icon - IconMonster -->
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+        <!-- Mumble UI -->
+        <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+        <!-- Dev Search UI -->
+        <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+        
+    
+    
+    
+    
+    {% block content %}
+    
+    {% if page == 'register' %}
+    <div class="auth">
+      <div class="card">
+        <div class="auth__header text-center">
+          {% comment %} <a href="/">
+            <img src="{% static 'img/icon.svg' %}" alt="icon" />
+          </a> {% endcomment %}
+          <h3>Account Registration </h3>
+    
+        </div>
+    
+    
+        <form form method = "POST" action = "{% url 'register' %}" class="form auth__form">
+          {% csrf_token %}
+          <!-- Input:Text -->
+          {% for field in form %}
+          <div class="form__field">
+            <label for="formInput#text">{{field.label}} </label>
+            {{field}}
+            {% comment %} {% if field.help_text %}
+                <small>{{field.help_text}}</small>
+            {% endif %}  {% endcomment %}
+    
+            {% for error in field.errors %}
+                <p style = "color: red;">{{error}}</p>
+            {% endfor %}
+    
+    
+            
+          
+          </div>
+          {% endfor %}
+    
+          <div class="auth__actions">
+            <input class="btn btn--sub btn--lg" type="submit" value="Sign  In" />
+          </div>
+        </form>
+        <div class="auth__alternative">
+          <p>Already have an Account?</p>
+          <a href="{% url 'index' %}" >Log In</a>
+      
+        </div>
+      </div>
+    </div>
