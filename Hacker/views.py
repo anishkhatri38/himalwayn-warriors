@@ -13,6 +13,7 @@ from django.urls import reverse
 from .models import Message, Room
 from .forms import RoomForm, ProjectForm, ReviewForm, UserForm
 from .models import Topic 
+from .models import Blog
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -33,8 +34,13 @@ from users.forms import CustomUserCreationForm, ProfileForm, SkillForm, InboxMes
 
 
 def index(request):
-    print(request.user)
-    return render(request, 'index.html')
+    data = Blog.objects.all()
+    return render(request, 'index.html',{"blogs":data})
+
+def single(request,slug):
+    data = Blog.objects.get(slug=slug)
+    return render(request, 'single.html',{"blog":data})
+    
 
 
 

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 import uuid
 from users.models import Profile 
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 # Create your models here
     
@@ -154,3 +155,17 @@ class FitnessPlan(models.Model):
 
 #     def __str__(self):
 #         return self.name
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length = 155)
+    content = models.TextField()
+    slug = models.SlugField(max_length = 255)
+    featured_image = models.ImageField(upload_to= "img/Blog")
+    
+    def get_absolute_url(self):
+        return reverse("Astra:single", args=[self.slug])
+
+
+    def __str__(self):
+        return self.title

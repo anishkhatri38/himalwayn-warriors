@@ -49,68 +49,76 @@
     </div>
 </div>
 
-
 <div class="container my-3">
-<h1 class="my-4 text-center">The Latest Block Content</h1>
+<h1 class="my-4 text-center">Discover Trainer Room</h1>
       <div class="row">
+        {% for blog in blogs %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-        <img src="{% static 'img/logo.svg' %}" class="d-block w-100" alt="...">
+        <img src="{{blog.featured_image.url}}" class="d-block w-100" alt="...">
             
             <div class="card-body">
-              <p class="card-text">Trainer Room has collabrated with the fitness centres around Adelaide. </p>
+              <p class="card-text"> {{blog.title}}</p>
+              <p class="card-text">{{blog.content}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
-                  <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
+                  <a href="/single/first-blog" role="button" class="btn btn-primary btn-sm">View</a>
+                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> {% endcomment %}
                 </div>
                 <small class="text-muted">-Trainer Room</small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="{% static 'img/logo.svg' %}" class="d-block w-100" alt="...">
-            <div class="card-body">
-              <p class="card-text">Trainer Room has organized a free program to enage more peoples to zym. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
-                  <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
-                </div>
-                <small class="text-muted">-ABC News </small>
-              </div>
-            </div>
+        {% endfor %}
+      </div>
+
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Membership</h1>
+      
+    </div>
+    
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Monthly</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$10 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Detailed Workout Plans</li>
+              <li>Nutrition Guides</li>
+              <li>Scientific Studies Breakdown</li>
+              <li>Weekly Members Only Email</li>
+            </ul>
+            {% comment %} {% url 'checkout' %} {% endcomment %}
+            
+            <a href="https://buy.stripe.com/eVa9Dh3BieM0cKcaEG"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button></a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="{% static 'img/logo.svg' %}" class="d-block w-100" alt="...">
-            <div class="card-body">
-              <p class="card-text">Train with the best trainer in the town. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">View</button> {% endcomment %}
-                  <a type="button"  href="{% url 'home_contact' %}" class="btn btn-sm btn-outline-secondary">Contact Us</a>
-                </div>
-                <small class="text-muted">-Adelaide News </small>
-              </div>
-            </div>
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Yearly<small class="text-primary">  Save $20!</small></h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$100 <small class="text-muted">/ yr</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Detailed Workout Plans</li>
+              <li>Nutrition Guides</li>
+              <li>Scientific Studies Breakdown</li>
+              <li>Weekly Members Only Email</li>
+            </ul>
+            <a href="https://buy.stripe.com/eVa7v9dbScDS7pSbIL"><button type="button" class="btn btn-lg btn-block btn-primary">Get started</button></a>
           </div>
         </div>
-
-        <div>
-          <h1 class="my-4 text-center">Recent Training Videos</h1>
-          <iframe width="370" height="315" src="https://www.youtube.com/embed/24fdcMw0Bj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <iframe width="370" height="315" src="https://www.youtube.com/embed/TGYT1JyRGoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <<iframe width="370" height="315" src="https://www.youtube.com/embed/t1Ol76_yKY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        
-        
       </div>
     </div>
+    </body>
+    <div>
+
+    
 
     {% comment %} <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
 {% include 'footer.html' %}   {% endcomment %}

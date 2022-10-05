@@ -7,6 +7,8 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings 
 from django.conf.urls.static import static
 
+# app_name="Astra"
+
 urlpatterns = [   
     # Added 
     # path('', views.index, name = 'index'),
@@ -62,6 +64,8 @@ urlpatterns = [
     path ('contact/', views.contact, name = 'contact'),
     path ('testing/', views.Testing, name = 'testing'),
 
+    # for viewing the blog 
+    path ('single/<slug:slug>', views.single, name="singel"),
 ]
 
 
