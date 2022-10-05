@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'storages'
+    'storages'
 ]
 JAZZMIN_UI_TWEAKS = {
     "theme": "slate",
@@ -204,18 +204,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img' )
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 #Image configuration in S3 Bucket 
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# AWS_QUERYSTRING_AUTH = False
-# AWS_S3_FILE_OVERWRITE = False 
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False 
 
-# AWS_ACCESS_KEY_ID = 'AKIA2PYQACGPI3XKK2H2'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'anishkhatri'
-# AWS_S3_SIGNATURE_VERSION = "s3v4"
+AWS_ACCESS_KEY_ID = 'AKIA2PYQACGPK5GNTUKK'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'anishkhatri'
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
