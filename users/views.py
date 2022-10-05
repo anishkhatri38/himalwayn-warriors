@@ -63,6 +63,7 @@ def registerUser(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
+            
 
             group = Group.objects.get(name='Trainer')
             user.groups.add(group)
@@ -70,7 +71,7 @@ def registerUser(request):
             messages.success(request, 'User account is created! thank you ')
 
             login(request,user)
-            return redirect('edit-account')
+            return redirect('login-customer')
 
         else:
             messages.success(request,'An error has occured during registration.')
@@ -79,7 +80,7 @@ def registerUser(request):
 
 
     context = {'page': page, 'form':form }
-    return render (request, 'users/login_register.html', context )
+    return render (request, 'users/register_customer.html', context )
 
 
 
