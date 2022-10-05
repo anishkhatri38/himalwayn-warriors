@@ -33,13 +33,11 @@ ALLOWED_HOSTS = ['127.0.0.1','traineroom.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-     'jazzmin',
+    #  'jazzmin',
     # Added Manually - Create an APP
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
     'Products.apps.ProductsConfig',
-    # 'Payment_Handler.apps.PaymentHandlerConfig',
-    # 'Video_Chat.app.VideoChatConfig'
     'rest_framework',
     'corsheaders',
 
@@ -53,9 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
 ]
-JAZZMIN_UI_TWEAKS = {
-    "theme": "slate",
-}
+# JAZZMIN_UI_TWEAKS = {
+#     "theme": "slate",
+# }
 
 # Added for api authentication
 REST_FRAMEWORK = {
