@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'storages'
+    'storages',
 ]
 JAZZMIN_UI_TWEAKS = {
     "theme": "slate",
