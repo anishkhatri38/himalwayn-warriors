@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1','traineroom.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-     'jazzmin',
+    #  'jazzmin',
     # Added Manually - Create an APP
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
