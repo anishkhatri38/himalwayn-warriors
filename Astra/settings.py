@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1','traineroom.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    #  'jazzmin',
+     'jazzmin',
     # Added Manually - Create an APP
     'Hacker.apps.HackerConfig',
     'users.apps.UsersConfig',
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages'
+    # 'storages'
 ]
 JAZZMIN_UI_TWEAKS = {
     "theme": "slate",
@@ -183,7 +183,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'troom8296@gmail.com'
-EMAIL_HOST_PASSWORD = 'yzpgamxhlrhtacdx'
+EMAIL_HOST_PASSWORD = 'equcavzibecdsqep'
 
 
 
@@ -215,7 +215,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 # AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
