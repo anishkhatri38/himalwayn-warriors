@@ -68,7 +68,7 @@ def registerUser(request):
             group = Group.objects.get(name='Trainer')
             user.groups.add(group)
 
-            messages.success(request, 'User account is created! thank you ')
+            messages.success(request, 'User account is created! Please sign In! ')
 
             login(request,user)
             return redirect('login-customer')
@@ -96,7 +96,7 @@ def profiles(request):
 
 # @login_required(login_url='login')
 
-@allowed_users(allowed_roles=['Admin'])
+
 def userProfile(request,pk):
     profile = Profile.objects.get(id = pk)
     topSkills = profile.skill_set.exclude(description__exact = "")

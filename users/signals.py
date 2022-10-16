@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 from django.contrib.auth.models import User
 from .models import Profile
+from Products.models import Customer
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -43,6 +44,15 @@ def updateUser(sender,instance,created,**kwargs):
         user.email = profile.email
         user.save()
 
+def createCustomer(sender, instance, created, **kwargs):
+    if created:
+        user = instance
+        profile = Customer.objects.create(
+            user = user,
+            username = user.username,
+            email = user.email,
+            name = user.first_name,
+        )
 
 
 
