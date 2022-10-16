@@ -6,7 +6,7 @@ from .models import  Room, Topic, Message,Blog
 
 
 
-# Register your models here.
+
 from .models import Project, Review, Tag
 
 
