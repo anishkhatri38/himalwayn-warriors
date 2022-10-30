@@ -9,48 +9,38 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title> {% block title %}{% endblock title %} | Trainer Room </title>
+    <title>Trainer's Room - Stop wishing, start doing!</title>
+    <link rel = "icon" href = "{% static 'img/logo.svg' %}"type = "image/x-icon">
   </head>
   <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Trainer Room </a>
-  {% comment %} <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> {% endcomment %}
+  <a class="navbar-brand" href="/">Himalayan Warriors Cricket Club </a>
   <div>
   </div>
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
-      {% comment %} <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Login
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Customer</a>
-          <a class="dropdown-item" href="#">Softy</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Family Pack</a>  {% endcomment %}
         </div>
      
     
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      {% comment %} <ul>
-        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}" role="button">Trainer</a>
+
+      <ul class="navbar-nav mr-auto">
+        <a class="btn btn-primary btn-sm" href="{% url 'projects' %}">Explore WHCC</a>
+        </a>
+       </ul>
+       <ul>
+       </ul>
       
-      </ul> {% endcomment %}
       <ul class="navbar-nav mr-auto">
       
         <li class="nav-item dropdown">
-          <a class="btn btn-outline-success my-2 my-sm-0" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="btn btn-primary btn-sm" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'login-customer' %}">Customer</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'login' %}">Trainer</a>
+            <a class="dropdown-item" href="{% url 'login' %}">Customer/Trainer</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/admin/">Admin</a> 
           </div>
@@ -60,15 +50,30 @@
       </ul>
      <div>
      </div>
+
+    
       
       <ul class="navbar-nav mr-auto">
-        {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login-customer' %}" role="button">Customer</a> {% endcomment %}
-        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'register' %}" id="navbarDropdown" role="button">Sign Up</a>
+      
+        <li class="nav-item dropdown">
+          <a class="btn btn-primary btn-sm" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Signup/Register
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'register-customer' %}">Customer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'register-trainer' %}">Trainer</a>
+          </div>
+        </li>
       </ul>
       <ul>
       </ul>
     
     </form>
+  </div>
+  <div>
+  </div>
+  <div>
   </div>
 </nav>
  
